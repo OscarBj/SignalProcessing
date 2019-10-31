@@ -1,0 +1,2 @@
+Introduction to signal processing course (5 ECTS)
+All exercises are created and tested in octave

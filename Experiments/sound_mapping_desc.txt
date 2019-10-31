@@ -1,0 +1,40 @@
+- reference signal
+- combine with measured signal
+- component analysis for separation
+- noise reduction, common noisy frequencies
+
+% example 1%
+every value in each sensor is matched to a profile.
+matrix contains therefore profiles that it is matched to at this moment
+for example 1 = tap is running, 2 = 
+
+% example 2%
+matrix contains raw & profiled values
+sound data is profiled, humidity etc is raw values
+matrix needs to be further processed and mapped to profile
+-> column 1 = sound profile, column 2 = humidity, column 3 = temperature
+conclusion: all measurements with high sample rate is profiled before
+inserted in matrix, other samples come as raw values
+
+if we send data (matrix) to server 1 times per second, high sample rate measurements gets profiled using a 1s sliding window
+other measurements comes raw
+
+1) match frequency and 2) consistency of the frequency in the signal
+
+1) signal contains this frequency, and has an amplitude according tothreshold
+2) if 1) is fulfilled, we verify that the frequency does appear in certain pattern
+
+Use spectral coherence for retrieving similarity in freq and amp
+
+flow of usage)
+>enter learning mode
+>record "pure" signal
+>redord noisy signal
+>retreive x most powerful frequencies
+>signal profile is generated
+>enter inference mode
+>map input data against profiles
+>output result
+
+Use cross spectral power density to get ratio between db/Hz and Hz (each frequency has a db/Hz value wich corresponds to the combined power)
+Train neural network to classify cross spectral power density spectrums
